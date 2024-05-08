@@ -19,6 +19,9 @@ export const theme = {
     }
   },
   extend: {
+    fontFamily: {
+      inter: ['"Inter"', 'ui-sans-serif', 'sans-serif']
+    },
     colors: {
       border: 'hsl(var(--border))',
       input: 'hsl(var(--input))',

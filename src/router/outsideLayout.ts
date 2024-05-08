@@ -2,11 +2,11 @@ import type { RouteRecordRaw } from 'vue-router'
 
 export default [
   {
-    path: '/login',
-    name: 'login-page',
-    component: () => import('@/views/login/index.vue'),
+    path: '/sign-in',
+    name: 'sign-in-page',
+    component: () => import('@/views/sign-in/index.vue'),
     meta: {
-      title: 'Login'
+      title: 'Sign In'
     }
   },
   {
