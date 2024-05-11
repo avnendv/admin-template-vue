@@ -9,7 +9,8 @@ export const routes: RouteRecordRaw[] = [
     redirect: '/dashboard',
     component: () => import('@/layout/index.vue'),
     meta: {
-      title: 'Dashboard'
+      title: 'Dashboard',
+      hideInSearch: true
     },
     children: [...staticModules]
   },

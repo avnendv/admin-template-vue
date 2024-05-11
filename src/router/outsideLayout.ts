@@ -6,13 +6,8 @@ export default [
     name: 'sign-in-page',
     component: () => import('@/views/sign-in/index.vue'),
     meta: {
-      title: 'Sign In'
+      title: 'Sign In',
+      hideInSearch: true
     }
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'not-found-page',
-    meta: { title: 'Not found page' },
-    component: () => import('@/views/error/404.vue')
   }
 ] as RouteRecordRaw[]

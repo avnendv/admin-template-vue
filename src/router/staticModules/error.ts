@@ -11,7 +11,8 @@ export const notFound: RouteRecordRaw = {
     title: 'NotFound',
     hideInMenu: true,
     hideInTabs: true,
-    noCheckPer: true
+    noCheckPer: true,
+    hideInSearch: true
   },
   redirect: '/error/404',
   component: () => import('@/views/error/404.vue'),
@@ -38,7 +39,8 @@ export const errorRoute: RouteRecordRaw = {
         title: '404',
         icon: 'UserOutlined',
         hideInMenu: true,
-        noCheckPer: true
+        noCheckPer: true,
+        hideInSearch: true
       },
       component: () => import('@/views/error/404.vue')
     }

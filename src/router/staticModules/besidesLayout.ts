@@ -24,7 +24,8 @@ export const REDIRECT_ROUTE: RouteRecordRaw = {
       meta: {
         title: REDIRECT_NAME,
         hideInMenu: true,
-        noCheckPer: true
+        noCheckPer: true,
+        hideInSearch: true
       },
       beforeEnter: (to) => {
         const { params, query } = to

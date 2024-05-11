@@ -34,6 +34,8 @@ declare module 'vue-router' {
     hideInBreadcrumb?: boolean
     /** Do not display in the tab page */
     hideInTabs?: boolean
+    /** Do not display in search */
+    hideInSearch?: boolean
     /** Set the highlighted menu item of the current route, the value is route fullPath or route name, generally used for details page */
     activeMenu?: string
     /** Menu sort number */

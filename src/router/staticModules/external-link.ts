@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         name: `${MODULE_NAME}-welcome`,
         meta: {
           title: 'a',
-          icon: 'icon-shouye',
+          icon: 'radix-icons:component-1',
           noCheckPer: true,
           isExt: true
         },

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useDark, useMagicKeys, useMediaQuery } from '@vueuse/core'
 import { VisuallyHidden } from 'radix-vue'
+import { useRouter, type RouteRecordNormalized } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import {
@@ -13,11 +14,13 @@ import {
   CommandItem,
   CommandList
 } from '@/components/ui/command'
+import router from '@/router'
 
 defineOptions({
   name: 'SearchNavBar'
 })
 
+const $router = useRouter()
 const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 const isDark = useDark()
 const { Meta_K, Ctrl_K } = useMagicKeys({
@@ -29,9 +32,18 @@ const { Meta_K, Ctrl_K } = useMagicKeys({
 
 const isOpen = ref(false)
 
+const linkLists = computed(() => router.getRoutes().filter((item) => !item.meta.hideInSearch))
+
 watch([Meta_K, Ctrl_K], (v) => {
   if (v[0] || v[1]) isOpen.value = true
 })
+
+function handleSelectLink(item: RouteRecordNormalized) {
+  if (item.meta.isExt) window.open(item.path, '_blank')
+  else $router.push({ name: item.name })
+
+  isOpen.value = false
+}
 </script>
 <template>
   <Button
@@ -62,6 +74,19 @@ watch([Meta_K, Ctrl_K], (v) => {
           <CommandInput placeholder="Type a command or search..." />
           <CommandEmpty> No results found. </CommandEmpty>
           <CommandList @escape-key-down="isOpen = false">
+            <CommandGroup heading="Link">
+              <CommandItem
+                v-for="item in linkLists"
+                :key="item.name"
+                :heading="item.meta.title"
+                :value="item.meta.title"
+                class="py-3"
+                @select="handleSelectLink(item)"
+              >
+                <Icon :icon="item.meta.icon || 'radix-icons:file'" class="w-5 h-5 mr-2" />
+                <span>{{ item.meta.title }}</span>
+              </CommandItem>
+            </CommandGroup>
             <CommandGroup heading="Theme">
               <CommandItem
                 value="light-theme"
