@@ -1,13 +1,11 @@
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import router, { setupRouter } from './router'
+import { setupRouter } from './router'
 import { setupAssets, setupCustomComponents, setupGlobalMethods } from './plugins'
 import { setupStore } from './stores'
 
 const app = createApp(App)
-
-app.use(router)
 
 function setupPlugins() {
   // Import static resources

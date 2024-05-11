@@ -3,6 +3,12 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  plugins: ['vue', '@typescript-eslint', 'import'],
   extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
@@ -26,7 +32,6 @@ module.exports = {
     // js/ts
     // 'no-console': ['warn', { allow: ['error'] }],
     'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
-    camelcase: ['error', { properties: 'never' }],
 
     'no-var': 'error',
     'no-empty': ['error', { allowEmptyCatch: true }],
@@ -60,6 +65,30 @@ module.exports = {
     // vue
     'vue/no-v-html': 'off',
     'vue/require-default-prop': 'off',
-    'vue/require-explicit-emits': 'off'
+    'vue/require-explicit-emits': 'off',
+
+    // import
+    'import/first': 'error',
+    'import/no-duplicates': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+
+        pathGroups: [
+          {
+            pattern: 'vue',
+            group: 'external',
+            position: 'before'
+          },
+          {
+            pattern: '@vue/**',
+            group: 'external',
+            position: 'before'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['type']
+      }
+    ]
   }
 }
