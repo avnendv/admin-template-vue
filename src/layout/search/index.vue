@@ -52,7 +52,7 @@ function handleSelectLink(item: RouteRecordNormalized) {
     @click="isOpen = true"
   >
     <template v-if="isLargeScreen">
-      <span class="hidden lg:inline-flex">Search documentation...</span>
+      <span class="hidden lg:inline-flex">{{ $t('common.searchText') }}...</span>
       <span class="inline-flex lg:hidden">Search...</span>
       <div
         class="inline-flex border-border min-h-5 text-[11px] px-1 pointer-events-none absolute right-[0.3rem] top-1/2 -translate-y-1/2 sm:flex h-5 select-none items-center gap-1 rounded border bg-muted font-medium opacity-100"
@@ -71,7 +71,7 @@ function handleSelectLink(item: RouteRecordNormalized) {
       </VisuallyHidden>
       <DialogDescription>
         <Command>
-          <CommandInput placeholder="Type a command or search..." />
+          <CommandInput :placeholder="`${$t('common.searchText')}...`" />
           <CommandEmpty> No results found. </CommandEmpty>
           <CommandList @escape-key-down="isOpen = false">
             <CommandGroup heading="Link">

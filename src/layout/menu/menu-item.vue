@@ -53,7 +53,7 @@ const groupMenu = computed(() => groupBy(filterMenus.value, 'atGroup'))
             >
               <Icon v-if="item.meta?.icon" class="w-4 h-4" :icon="item.meta?.icon" />
               <span v-show="!(collapsed && isLargeScreen)">
-                {{ item.meta?.title || item.name }}
+                {{ $t(String(item.meta?.title || item.name)) }}
               </span>
             </div>
           </DropdownMenuTrigger>
@@ -74,7 +74,7 @@ const groupMenu = computed(() => groupBy(filterMenus.value, 'atGroup'))
                   ]"
                 >
                   <Icon v-if="child.meta?.icon" class="w-4 h-4" :icon="child.meta?.icon" />
-                  {{ child.meta?.title || child.name }}
+                  {{ $t(String(child.meta?.title || child.name)) }}
                 </component>
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -96,7 +96,7 @@ const groupMenu = computed(() => groupBy(filterMenus.value, 'atGroup'))
         >
           <Icon v-if="item.meta?.icon" class="w-4 h-4" :icon="item.meta?.icon" />
           <span v-show="!(collapsed && isLargeScreen)">
-            {{ item.meta?.title || item.name }}
+            {{ $t(String(item.meta?.title || item.name)) }}
           </span>
         </component>
       </div>

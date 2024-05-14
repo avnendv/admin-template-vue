@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     atGroup: 'general',
     component: () => import('@/views/dashboard/index.vue'),
     meta: {
-      title: 'Dashboard',
+      title: 'routes.dashboard.dashboard',
       icon: 'radix-icons:dashboard',
       noCheckPer: true
     }
