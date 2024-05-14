@@ -44,7 +44,7 @@ const groupMenu = computed(() => groupBy(filterMenus.value, 'atGroup'))
           <DropdownMenuTrigger as-child>
             <div
               :class="[
-                'flex items-center py-2 capitalize transition-all duration-300 rounded-md gap-x-4 relative cursor-pointer',
+                'flex items-center py-2 cursor-pointer capitalize transition-all duration-300 rounded-md gap-x-4 relative',
                 $route.fullPath.includes(item.path)
                   ? 'bg-[#3A57E8] text-white'
                   : 'hover:bg-ring hover:text-background',
@@ -66,7 +66,7 @@ const groupMenu = computed(() => groupBy(filterMenus.value, 'atGroup'))
                   :href="child.meta?.isExt && child.path"
                   :target="child.meta?.isExt && '_blanks'"
                   :class="[
-                    'flex items-center py-2 capitalize transition-all duration-300 rounded-md gap-x-4',
+                    'flex items-center py-2 cursor-pointer capitalize transition-all duration-300 rounded-md gap-x-4',
                     $route.name === child.name
                       ? 'bg-[#3A57E8] text-white'
                       : 'hover:bg-ring hover:text-background',
@@ -87,7 +87,7 @@ const groupMenu = computed(() => groupBy(filterMenus.value, 'atGroup'))
           :href="item.meta?.isExt && item.path"
           :target="item.meta?.isExt && '_blanks'"
           :class="[
-            'flex items-center py-2 capitalize transition-all duration-300 rounded-md gap-x-4',
+            'flex items-center py-2 cursor-pointer capitalize transition-all duration-300 rounded-md gap-x-4',
             $route.name === item.name
               ? 'bg-[#3A57E8] text-white'
               : 'hover:bg-ring hover:text-background',

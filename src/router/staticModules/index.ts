@@ -1,4 +1,5 @@
 import dashboard from './dashboard'
-import externaLink from './external-link'
+import table from './table'
+import externalLink from './external-link'
 
-export default [...dashboard, ...externaLink]
+export default [...dashboard, ...table, ...externalLink]
